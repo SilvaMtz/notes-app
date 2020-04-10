@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const utils = require('./utils.js');
+const notes = require('./notes.js')
 
-// fs.writeFileSync('notes.txt', 'My name is deeeee');
-fs.appendFileSync('notes.txt', "\nheheheeeee");
+console.log(notes())
