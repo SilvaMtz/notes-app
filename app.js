@@ -47,7 +47,7 @@ yargs.command({
   command: 'list',
   describe: 'List all existing notes',
   handler() {
-    console.log('Here are your notes!');
+    notes.getNotes();
   }
 })
 
@@ -55,11 +55,16 @@ yargs.command({
 yargs.command({
   command: 'read',
   describe: 'Read an existing note',
-  handler() {
-    console.log('Here is the note!');
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.readNote(argv.title);
   }
 })
-
-// add, remove, read, list
 
 yargs.parse();
